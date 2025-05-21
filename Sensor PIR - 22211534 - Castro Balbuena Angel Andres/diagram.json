@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "CASTRO BALBUENA ANGEL ANDRES",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -92, "left": 79.02, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 127.94,
+      "left": -124.57,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "pir1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "pir1:GND", "pico:GND.8", "black", [ "v0" ] ],
+    [ "pico:GP14", "pir1:OUT", "green", [ "h32.35", "v35.19", "h86.54" ] ],
+    [ "oled1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "oled1:GND", "pico:GND.8", "black", [ "v0" ] ],
+    [ "pico:GP4", "oled1:SDA", "green", [ "h0" ] ],
+    [ "pico:GP5", "oled1:SCL", "green", [ "h-73.25", "v63.95" ] ]
+  ],
+  "dependencies": {}
+}
