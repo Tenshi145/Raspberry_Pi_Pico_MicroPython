@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Angel Castro",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -3.25,
+      "left": 3.55,
+      "rotate": 270,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -124.5, "left": 138.6, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 204.74,
+      "left": -57.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "dht1:GND", "pico:GND.4", "black", [ "v163.2", "h-62.84" ] ],
+    [ "dht1:VCC", "pico:3V3", "red", [ "v19.2", "h-158.8" ] ],
+    [ "dht1:SDA", "pico:GP15", "green", [ "v0" ] ],
+    [ "oled1:GND", "pico:GND.4", "black", [ "v-57.6", "h109.96" ] ],
+    [ "oled1:SDA", "pico:GP4", "green", [ "v0" ] ],
+    [ "oled1:SCL", "pico:GP5", "#8f4814", [ "h19.5", "v-81.5" ] ],
+    [ "oled1:VCC", "pico:3V3_EN", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

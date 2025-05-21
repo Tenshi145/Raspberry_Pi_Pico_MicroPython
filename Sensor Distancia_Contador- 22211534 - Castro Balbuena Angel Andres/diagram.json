@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Castro Angel",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -46.55,
+      "left": -106.45,
+      "rotate": 270,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -152.1,
+      "left": 72.7,
+      "attrs": { "distance": "247" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -179.26,
+      "left": -297.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP2", "ultrasonic1:ECHO", "green", [ "v28.8", "h298.4" ] ],
+    [ "ultrasonic1:TRIG", "pico:GP3", "blue", [ "v28.8", "h-0.4", "v48" ] ],
+    [ "pico:GND.1", "oled1:GND", "black", [ "v19.2", "h-124.8" ] ],
+    [ "ultrasonic1:GND", "pico:GND.1", "black", [ "v9.6", "h75.6", "v86.4", "h-393.6" ] ],
+    [ "pico:VSYS", "oled1:VCC", "red", [ "v-9.91", "h-86.4", "v-182.4" ] ],
+    [ "ultrasonic1:VCC", "pico:VSYS", "red", [ "v38.4", "h-288", "v38.71" ] ],
+    [ "oled1:SCL", "pico:GP5", "cyan", [ "v-28.8", "h163.5", "v-48" ] ],
+    [ "oled1:SDA", "pico:GP4", "purple", [ "h-19.13", "v259.2" ] ]
+  ],
+  "dependencies": {}
+}

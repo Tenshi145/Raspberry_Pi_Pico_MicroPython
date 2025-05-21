@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "author": "Mohammed Akbar Hossain",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 83.15,
+      "left": -34.85,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 89.4, "left": 248.7, "rotate": 90, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -83.26,
+      "left": -86.17,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc1",
+      "top": 254.2,
+      "left": -24.76,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd1",
+      "top": -200.2,
+      "left": -57.8,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": -200.84, "left": -9.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 251, "left": 47.8, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc4",
+      "top": 229.44,
+      "left": 163.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": 220.8, "left": 210.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "vcc2:VCC", "oled1:VCC", "red", [ "v0" ] ],
+    [ "oled1:GND", "gnd1:GND", "black", [ "v-76.8", "h-28.8" ] ],
+    [ "vcc4:VCC", "dht1:VCC", "red", [ "h-19.2", "v-165.9" ] ],
+    [ "dht1:GND", "gnd3:GND", "black", [ "v38.4", "h-144" ] ],
+    [ "dht1:SDA", "pico:GP2", "green", [ "v0.1", "h-105.6", "v0", "h-52.7" ] ],
+    [ "vcc1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "pico:GND.8", "gnd2:GND", "black", [ "h0" ] ],
+    [ "oled1:SDA", "pico:GP4", "green", [ "v0" ] ],
+    [ "oled1:SCL", "pico:GP5", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

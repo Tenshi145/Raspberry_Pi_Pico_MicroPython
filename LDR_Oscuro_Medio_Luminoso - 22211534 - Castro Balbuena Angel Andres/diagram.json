@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Castro Balbuena Angel Andres",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -108.85,
+      "left": 41.95,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -16.2,
+      "left": 334,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -85.77,
+      "left": -203.74,
+      "rotate": 90,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "pico:3V3", "ldr1:VCC", "blue", [ "h221.11", "v0", "h19.2" ] ],
+    [ "pico:GND.8", "ldr1:GND", "black", [ "h221.11", "v95.6" ] ],
+    [ "pico:GP26", "ldr1:AO", "purple", [ "h0" ] ],
+    [ "oled1:VCC", "pico:3V3", "gray", [ "v0.15", "h201.29" ] ],
+    [ "oled1:GND", "pico:GND.8", "black", [ "v-19.2", "h230.09" ] ],
+    [ "pico:GP4", "oled1:SDA", "limegreen", [ "h0" ] ],
+    [ "oled1:SCL", "pico:GP5", "violet", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
